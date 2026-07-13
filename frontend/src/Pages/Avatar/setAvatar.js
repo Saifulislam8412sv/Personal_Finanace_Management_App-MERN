@@ -108,19 +108,39 @@ const SetAvatar = () => {
   //     );
   //   }
 
+//     setImgURL(imgData);
+//     setLoading(false);
+//   }
+// };
+
+//         setImgURL(imgData);
+//         // console.log(imgData);
+//         setLoading(false);
+//       }
+
+//       return e.target.value;
+//     });
+//   };
+
+  //file start
+const handleSpriteChange = (e) => {
+  if (e.target.value.length > 0) {
+    setLoading(true);
+
+    const imgData = [];
+
+    for (let i = 0; i < 4; i++) {
+      imgData.push(
+        `https://api.dicebear.com/7.x/${e.target.value}/svg?seed=${randomName()}`
+      );
+    }
+
     setImgURL(imgData);
     setLoading(false);
   }
 };
 
-        setImgURL(imgData);
-        // console.log(imgData);
-        setLoading(false);
-      }
-
-      return e.target.value;
-    });
-  };
+  //file end
 
   const setProfilePicture = async () => {
     if (selectedAvatar === undefined) {
