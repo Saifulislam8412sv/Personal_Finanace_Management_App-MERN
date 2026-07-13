@@ -19,7 +19,15 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
+  "https://personal-finanace-management-app-mern-t6fv-5cz2fy5kf-expence1.vercel.app",
 ];
+
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "http://localhost:5173",
+//   "https://main.d1sj7cd70hlter.amplifyapp.com",
+//   "https://expense-tracker-app-three-beryl.vercel.app",
+// ];
 
 // Middleware
 app.use(express.json());
