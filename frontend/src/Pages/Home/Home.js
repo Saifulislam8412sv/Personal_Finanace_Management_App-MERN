@@ -140,32 +140,57 @@ const Home = () => {
   
 
 
+  // useEffect(() => {
+
+  //   const fetchAllTransactions = async () => {
+  //     try {
+  //       setLoading(true);
+  //       console.log(cUser._id, frequency, startDate, endDate, type);
+  //       const { data } = await axios.post(getTransactions, {
+  //         userId: cUser._id,
+  //         frequency: frequency,
+  //         startDate: startDate,
+  //         endDate: endDate,
+  //         type: type,
+  //       });
+  //       console.log(data);
+  
+  //       setTransactions(data.transactions);
+  
+  //       setLoading(false);
+  //     } catch (err) {
+  //       // toast.error("Error please Try again...", toastOptions);
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchAllTransactions();
+  // }, [refresh, frequency, endDate, type, startDate]);
   useEffect(() => {
+  if (!cUser?._id) return;
 
-    const fetchAllTransactions = async () => {
-      try {
-        setLoading(true);
-        console.log(cUser._id, frequency, startDate, endDate, type);
-        const { data } = await axios.post(getTransactions, {
-          userId: cUser._id,
-          frequency: frequency,
-          startDate: startDate,
-          endDate: endDate,
-          type: type,
-        });
-        console.log(data);
-  
-        setTransactions(data.transactions);
-  
-        setLoading(false);
-      } catch (err) {
-        // toast.error("Error please Try again...", toastOptions);
-        setLoading(false);
-      }
-    };
+  const fetchAllTransactions = async () => {
+    try {
+      setLoading(true);
 
-    fetchAllTransactions();
-  }, [refresh, frequency, endDate, type, startDate]);
+      const { data } = await axios.post(getTransactions, {
+        userId: cUser._id,
+        frequency,
+        startDate,
+        endDate,
+        type,
+      });
+
+      setTransactions(data.transactions);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchAllTransactions();
+}, [cUser?._id, refresh, frequency, startDate, endDate, type]);
 
   const handleTableClick = (e) => {
     setView("table");
