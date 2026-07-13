@@ -93,17 +93,20 @@ const SetAvatar = () => {
   //           }/svg?seed=${randomName()}`
   //         );
   //       }
-  const handleSpriteChange = (e) => {
-  if (e.target.value.length > 0) {
-    setLoading(true);
 
-    const imgData = [];
+//another code
+  
+  // const handleSpriteChange = (e) => {
+  // if (e.target.value.length > 0) {
+  //   setLoading(true);
 
-    for (let i = 0; i < 4; i++) {
-      imgData.push(
-        `https://api.dicebear.com/7.x/${e.target.value}/svg?seed=${randomName()}`
-      );
-    }
+  //   const imgData = [];
+
+  //   for (let i = 0; i < 4; i++) {
+  //     imgData.push(
+  //       `https://api.dicebear.com/7.x/${e.target.value}/svg?seed=${randomName()}`
+  //     );
+  //   }
 
     setImgURL(imgData);
     setLoading(false);
